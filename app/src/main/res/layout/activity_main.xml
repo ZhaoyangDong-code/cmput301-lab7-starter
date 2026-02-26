@@ -1,51 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:background="?attr/colorPrimary"
+        android:padding="16dp"
+        android:text="ListyCity"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/button_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/header">
 
         <Button
             android:id="@+id/button_add"
-            android:layout_width="180dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="ADD CITY" />
 
         <Button
             android:id="@+id/button_clear"
-            android:layout_width="180dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="CLEAR ALL" />
     </LinearLayout>
 
     <ListView
         android:id="@+id/city_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:choiceMode="singleChoice"
-        android:listSelector="#999999">
-
-    </ListView>
+        android:listSelector="#999999"
+        app:layout_constraintBottom_toTopOf="@id/field_nameEntry"
+        app:layout_constraintTop_toBottomOf="@id/button_container" />
 
     <LinearLayout
         android:id="@+id/field_nameEntry"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="bottom"
-        android:visibility="invisible">
+        android:padding="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <EditText
             android:id="@+id/editText_name"
             style="@style/Widget.AppCompat.EditText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
@@ -57,9 +74,8 @@
             android:id="@+id/button_confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="CONFIRM" />
 
     </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
